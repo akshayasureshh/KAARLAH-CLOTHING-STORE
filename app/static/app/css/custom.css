@@ -1,0 +1,76 @@
+
+
+.row.container {
+    /* Add your CSS styles here */
+    
+    padding-right: 100px;
+    
+    margin-right: 100px;
+  }
+
+
+.Gimgproduct1{
+    padding-right: 10px;
+    margin-right: 20px;
+    
+
+}
+button{
+    background-color: rgb(92, 92, 92);
+    color: rgb(248, 246, 246);
+    border: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: 0.3s;
+    width: 150px;
+    height: 40px;
+    
+}
+button:hover{
+    color: #3e1403;
+    background-color: #7e5c45;
+}
+.container{
+    
+    width: 100%;
+    max-width: 100%;
+}
+.Gimgproduct2{
+    margin-left: 50px;
+
+}
+.b1{
+
+    margin-left: 150px;
+}
+.b2{
+    margin-left: 210px;
+}
+.arrivals{
+    display: inline-flex; 
+    
+    
+  }
+  .column {
+    flex: 1;
+    text-align: center; 
+   
+    
+  }
+  .secdiv{
+   
+    margin-top: 30px;
+  }
+u{
+    text-decoration-color: black;
+}
+.girls{
+    
+    
+    text-align: center;
+}
+.lah{
+    margin-top: 100px;
+}
+.container.karlgirl{
+    background-color: aquamarine;
+}

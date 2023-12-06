@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Checkout{% endblock %}
+
+
+{% block main-content %}
+<div style="margin-top: 60px;">
+<form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+    <button class="btn btn-outline-dark" type="submit" width="300px">Search</button> 
+</form>
+</div>
+{% endblock main-content %}

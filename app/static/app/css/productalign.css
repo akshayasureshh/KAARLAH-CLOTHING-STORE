@@ -1,0 +1,16 @@
+.row-flex {
+    display: flex;
+    align-items: flex-start;
+}
+.productdetail{
+   
+    padding: 47px;
+    
+
+}
+
+.container{
+    display: inline;
+}
+
+

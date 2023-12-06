@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+
+{% block main-content %}
+
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-sm-6 offset-sm-3">
+                <h3>Login</h3>
+                <hr>
+                <form action="{% url 'login' %}" method="post" novalidate class="shadow p-5">
+                    {% csrf_token %}
+                    {% for fm in form %}
+                       {{fm.label_tsg}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small><br>
+                    {% endfor %}
+
+                    <small><a href="{% url 'send_otp' %}">Forgot Password ?</a></small>
+                    <br>
+                    <a href="{% url 'login' %}"><input type="submit" class="btn btn-dark mt-4" value="Login"></a>  
+                    <div class="text-center text-primary fw-bold">
+                        <small>New User ?<a href="{% url 'customerregistration' %}" class="text-danger">create an account</a></small>
+                    </div>
+
+
+                    {% if form_non_field_errors %}
+                       {% for error in form.form_non_field_errors %}
+                          <p class="alert alert-danger my-3">{{error}}</p>
+                       {% endfor %}
+                    {% endif %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock main-content %}

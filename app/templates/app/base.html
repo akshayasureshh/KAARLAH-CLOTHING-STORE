@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carouel.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}"  />
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}"  />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>clothing store | {% block title %}{% endblock title %}</title>
+    {% block extra_head %}{% endblock %}
+<style>
+      .navbar{
+        height: 80px;
+      }
+      .karlah{
+        margin-right: 200px;
+      }
+      /* styles.css or your CSS file */
+.circle-badge {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  width: 16px; /* Adjust the size as needed */
+  height: 16px;
+  background-color: rgb(216, 25, 25); /* Adjust the background color as needed */
+  color: white;
+  text-align: center;
+  line-height: 11px; /* Center the text vertically */
+  top: -43px; /* Adjust the top value to control the vertical position */
+  right: -14px; /* Adjust the right value to control the horizontal position */
+}
+
+.circle-badgecart{
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  width: 16px; /* Adjust the size as needed */
+  height: 16px;
+  background-color: rgb(216, 39, 39); /* Adjust the background color as needed */
+  color: white;
+  text-align: center;
+  line-height: 11px; /* Center the text vertically */
+  top: -43px; /* Adjust the top value to control the vertical position */
+  right: -14px; 
+}
+ .rgtnav{
+  margin-top: 20px;
+ }
+
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/women/"><span class="txt">Women</span></a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/men/"><span class="txt">Men</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><span class="txt">Teen</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><span class="txt">Kids</span></a>
+          </li>
+        </ul>
+        
+      </div>
+      
+    
+    
+        
+      <a class="navbar-brand" href="/" title="KAARLAH Shop Online"><img class="karlah" src="{%static "app/images/logokarlah2.svg" %}" alt="KAARLAH Logo" height="150" width="150"></a>
+    </div></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse rgtnav" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item sea">
+            <a class="nav-link active" href="/searchbar/" title="search"> <img src="{% static "app/images/search.svg" %}"></a>
+              </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{%static "app/images/user.png" %}" height="25" width="25">
+                
+                </a>
+                
+                <ul class="dropdown-menu">
+          
+                  <li><a class="dropdown-item" href="{% url 'customerregistration' %}">Register</a></li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+             
+                  <li><a class="dropdown-item" href="{% url 'profile' %}">My account</a></li>
+                  <li><a class="dropdown-item" href="{% url 'orders' %}">My purchases</a></li>
+                  <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change password</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Sign out</a></li>
+    
+                  </ul>
+              </li>
+                 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+         <li class="nav-item">
+          <a class="nav-link active" href="{% url 'showwishlist' %}" title="wishlist">
+              <img src="{% static "app/images/wishlist.png" %}" height="25" width="25" alt="Wishlist">
+              <span class="circle-badge">
+                  {% if wishitem > 0 %} {{ wishitem }} {% endif %}
+              </span>
+          </a>
+      </li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+          
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'showcart' %}" title="shopping bag"><img src="{%static "app/images/bag.png" %}" height="25" width="25">
+              <span class="circle-badgecart" >{% if totalitem > 0 %} {{totalitem}} {% endif %}</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    
+    </div>
+  </nav>   
+
+  <!-- Your page content here -->
+  {% block banner_slider %}{% endblock banner_slider %}
+  {% block main-content %}
+  
+  {% endblock main-content %}
+  {% block payment-gateway %} {% endblock payment-gateway %}
+  <footer class="container-fluid fixed-bottom bg--bs-danger-bg-subtle text-center p-2 mt-5">
+    Copyright : 2023 || Develop by : Akshaya Suresh
+
+    
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'app/js/all.min.js' %}"></script>
+<script src="{% static 'app/js/myscript.js' %}"></script>
+</body>
+</html>

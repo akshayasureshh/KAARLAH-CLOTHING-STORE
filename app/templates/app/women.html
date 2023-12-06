@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>women</title>
+
+  <style>
+    /* Style for the dropdown container */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 110px;
+      margin-right: 30px;
+    
+    }
+  
+    /* Style for the dropdown heading */
+    .dropdown-heading {
+      color: #5e5c5c ;
+      padding: 10px;
+      font-size: 25px;
+      
+    }
+  
+    /* Style for the dropdown list */
+    .dropdown-list {
+      display: none;
+      position: absolute;
+      border: 1px solid #ccc;
+      z-index: 1;
+      color:#100101;
+      text-decoration: none;
+      
+    }
+  
+    /* Show the dropdown list when the dropdown is hovered */
+    .dropdown:hover .dropdown-list {
+      display: block;
+    }
+    .dropdown:hover .dropdown-content {
+    display: block;
+  }
+    .new{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      
+      text-decoration: none;
+      color: #5e5c5c;
+
+    }
+    .highlight {
+    font-size: 50px; /* Set the font size to change the width and height */
+    line-height: 1;  /* Reset line height to avoid extra space */
+  }
+  span{
+    color: #5e5c5c ;
+    text-decoration: none;
+  }
+  .shoes{
+    font-size: 25px;
+    margin-left: 40px;
+  }
+  
+  .item {
+    display: block; /* Show items one below another */
+    padding: 10px; /* Add padding for spacing between items */
+    width: fit-content;
+    margin-bottom: 10px; /* Add margin at the bottom for spacing between items */
+  }
+  .defg{
+    padding-right: 100px;
+    margin-right: 40px;
+  }
+  .hijk{
+   
+    width: fit-content;
+
+  }
+  .lmno{
+    background-color: #993333;
+  display: inline-flex;
+  align-items: flex-end; /* Align the image to the bottom */
+  justify-content: flex-end; /* Align the image to the right */
+  margin: 0; 
+  }
+  .container{
+    background-color: rgb(255, 116, 116);
+  
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">
+      <a class="new" href="{% url 'category' 'NA' %}"><span class="highlight">New arrivals</span> </a>
+    </div>  
+  
+  
+    <div class="item">
+      <a class="new" href="{% url 'category' 'SA' %}"><span class="shoes">Shoes and accessories</span> </a>
+    </div>
+      <div class="item">
+        <a class="new" href="{% url 'category' 'Cl' %}"><span class="shoes">Collections</span> </a>
+
+      </div>
+      <div class="hijk">
+      <div class="dropdown  defg">
+      <div class="dropdown-heading">Clothing</div>
+      <div class="dropdown-list">
+      <a href="{% url 'category' 'CT' %}"><span >Coat</span> </a>
+      <a href="{% url 'category' 'JS' %}">Jackets and suit jackets</a>
+      <a href="{% url 'category' 'SC' %}">Sweaters and cardigans</a>
+      <a href="{% url 'category' 'ST' %}">Shirts</a>
+      <a href="{% url 'category' 'TR' %}">Trousers</a>
+      <a href="{% url 'category' 'JN' %}">Jeans</a>
+      <a href="{% url 'category' 'BS' %}">Bikins and swimsuits </a>
+      </div>
+
+      </div>
+      </div> 
+    <div class="lmno">
+      <img src="{% static 'app\images\Gimgs\Gimg3.jpg' %}" width="400" height="350">
+    </div>
+
+</div>
+
+</body>
+</html>

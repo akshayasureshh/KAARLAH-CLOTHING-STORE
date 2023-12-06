@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock %}
+{% block extra_head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app\css\productalign.css' %}">
+
+
+{% endblock %}
+
+
+{% block main-content %}
+   <div class="container">
+        <div class="row-flex justify-content-between">
+            <div class="img2 col-lg-5 mt-5">
+                <img src="{{product.product_image.url}}" class="image col-xs-6 col-sm-12 col-lg-12 mt-4 text-sm-center w-100 h-75" alt="">
+            </div>
+            <div class="productdetail col-lg-5">
+                <h1 class="headpro" style="font-family: Georgia; font-size: 50px;">{{product.title}}</h1>
+                <h5>Rs.{{product.discounted_price}}/-</h5>
+                <small class="text-decoration-line-through text-muted fs-5"><del>Rs. {{product.selling_price}}/-</small></del>
+                <br><br><h4>Product Features</h4>
+                <ul class="fs-5" style="font-family: Rajdhani;font-size: 5px;">
+                    <li>{{product.description}}</li>
+                   
+                </ul>
+
+                <div class="button row flex" style="font-family: Rajdhani;" >
+                   
+                    <form action="/add-to-cart" class="d-inline" style="width: 150px;height: 40px;font-family:Georgia, 'Times New Roman', Times, serif;">
+                        <input type="hidden" name="prod_id" value="{{ product.id }}">
+                        <button type="submit" class=" gap-2 btn btn-dark p-1 m-1 btn-lg text-decoration-none text-white">Add to Cart</button>
+                    </form>
+                    <a href="{% url 'showcart' %}" class="btn btn-dark shadow" style="width: 100px;height: 40px; margin-left: 40px;">Buy Now</a>
+
+                    
+                <div class="wishlist-button" style="margin-left: 120px;">
+                    {% if wishlist %}
+                        <a href="/minuswishlist/{{ product.id }}" class="plus-wishlist btn btn-danger shadow  " style="width: 50px;"><i class="fas fa-heart fa-lg"></i></a>
+                    {% else %}
+                        <a href="/pluswishlist/{{ product.id }}" class="minus-wishlist btn btn-dark shadow " style="width: 50px;"><i class="fas fa-heart fa-lg"></i></a>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+        </div>
+   </div>
+{% endblock main-content %}

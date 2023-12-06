@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Sign in {% endblock %}
+
+
+		
+
+
+{% block main-content %}
+<div class="container" style="display: inline;">
+    <div >
+       <a href="{% url 'login' %}">Login</a>
+    </div>
+    <div>
+     <a href="{% url 'customerregistration' %}">REGISTER</a>
+   </div>
+
+   <div>
+     
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{%static "app/images/user.png" %}" height="25" width="25">
+         </a>
+         <ul class="dropdown-menu">
+           <li><a class="dropdown-item" href="#">My Account</a></li>
+           <li><a class="dropdown-item" href="#">My Purchases</a></li>
+           <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+           <li><a class="dropdown-item" href="#">Log Out</a></li>
+         </ul>
+   </div>
+
+</div>
+
+
+{% endblock main-content %}
